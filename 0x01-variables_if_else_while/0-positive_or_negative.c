@@ -9,22 +9,22 @@
 /* betty style doc for function main goes there */
 int main(void)
 {
-	int number;
+	int n;
 
 	srand(time(0));
-	number = rand() - RAND_MAX / 2;
+	n = rand() - RAND_MAX / 2;
 	/* your code goes there */
 	if (n == 0)
 	{
-		printf("%i is zero\n", number);
+		printf("%i is zero\n", n);
 	}
 	else if (n > 0)
 	{
-		printf("%i is positive\n", number);
+		printf("%i is positive\n", n);
 	}
 	else
 	{
-		printf("%i is negative\n", number);
+		printf("%i is negative\n", n);
 	}
 
 	return (0);
