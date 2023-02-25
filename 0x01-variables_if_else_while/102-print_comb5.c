@@ -25,11 +25,8 @@ int main(void)
 						putchar(c);
 						putchar(d);
 						
-						if (c <= 57 && d <= 57 && b != 56)
-						{
-							putchar(',');
-							putchar(' ');
-						}
+						putchar(',');
+						putchar(' ');
 					}
 				}
 			}
