@@ -15,8 +15,6 @@ int main(void)
 			{
 				for (d = 49; d <= 57; d++)
 				{
-					if (a + b < c + d)
-					{
 						putchar(a);
 						putchar(b);
 						
@@ -27,7 +25,6 @@ int main(void)
 						
 						putchar(',');
 						putchar(' ');
-					}
 				}
 			}
 		}
