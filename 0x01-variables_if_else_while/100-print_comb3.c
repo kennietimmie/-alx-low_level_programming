@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+* a program that prints all possible different combinations
+* of two digits
+*/
+
 int main(void)
 {
 	int first = 48, second;
