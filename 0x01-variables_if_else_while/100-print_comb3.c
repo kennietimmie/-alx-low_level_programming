@@ -2,16 +2,16 @@
 
 int main(void){
 
-  int a = 48;
+  int first = 48, second;
   
-  for(; a <= 57; a++){   
-    for(int b = 49; b <= 57; b++){
+  for(; first <= 57; first++){   
+    for(second = 49; second <= 57; second++){
 
-      if(a < b){
-        putchar(a);
-        putchar(b); 
+      if(first < second){
+        putchar(first);
+        putchar(second); 
         
-        if(a < 56 || b < 56) {
+        if(first < 56 || second < 56) {
           putchar(',');
           putchar(' ');
         }
