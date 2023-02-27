@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * reset - Set value to 98
+ * reset_to_98 - Set value to 98
+ *@n: The pointer address
  *
  * Return: Always void
  */
