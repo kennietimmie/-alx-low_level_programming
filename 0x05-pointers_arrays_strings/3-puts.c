@@ -13,7 +13,7 @@ void _puts(char *str)
 		_putchar(*str);
 		str++;
 	}
-	if(!*str)
+	if (!*str)
 		_putchar(10);
 }
 
