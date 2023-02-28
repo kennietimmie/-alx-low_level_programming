@@ -14,10 +14,10 @@ void print_rev(char *s)
 
 	while (*s)
 	{
-		putchar(*s);
+		_putchar(*s);
 		s--;
 	}
 
-	putchar(10);
+	_putchar(10);
 }
 
