@@ -8,7 +8,7 @@
  *
  * Return: Always char *
  */
-char *_strcpy(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
 	int i = 0;
 
@@ -16,7 +16,6 @@ char *_strcpy(char *dest, char *src, int n)
 	{
 		if (*(src + i) == '\0')
 			*(dest + i) = '\0';
-
 		else
 			*(dest + i) = *(src + i);
 		i++;
