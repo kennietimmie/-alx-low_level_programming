@@ -23,27 +23,4 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	return (dest);
 }
-int main (void)
-{
-	char dest[90] = "Hello ";
-	char src[] = "World!\n";
-	char *ptr;
-
-	printf("%s\n", dest);
-	printf("%s", src);
-
-	ptr = _strncat(dest, src, 1);
-
-	printf("%s\n", dest);
-	printf("%s", src);
-	printf("%s\n", ptr);
-
-	ptr = _strncat(dest, src, 1024);
-
-	printf("%s", dest);
-	printf("%s", src);
-	printf("%s", ptr);
-	
-	return (0);
-}	
 
