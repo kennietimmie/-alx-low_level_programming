@@ -1,23 +1,23 @@
 #include "main.h"
 /**
- * rot13 - encodes a string. 
- * @s: pointer to string.
+ * rot13 - encodes a string using rot13 formula. 
+ * @s - pointer to string.
  * 
- * Return: pointer to string.
+ * Return: pointer to s.
  */
 char *rot13(char *s)
 {
-	int length = 0, limit;
-	char arr1[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char arr2[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	int length = 0, key;
+	char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	while (s[length] != '\0')
 	{
-		for (limit = 0; arr1[limit] != '\0'; limit++)
+		for (key = 0; input[key] != '\0'; key++)
 		{
-			if (s[length] == arr1[limit])
+			if (s[length] == input[key])
 			{
-				s[length] = arr2[limit];
+				s[length] = output[key];
 				break;
 			}
 		}
@@ -25,3 +25,4 @@ char *rot13(char *s)
 	}
 	return (s);
 }
+
