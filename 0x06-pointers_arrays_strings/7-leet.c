@@ -16,13 +16,13 @@ char *leet(char *s)
 	char decode[] = "aAeEoOtTlL";
 	char encode[] = "4433007711";
 	
-	while (*(s + i) != '\0')
+	while (s[i] != '\0')
 	{
-		for (j = 0; decode[j]; j++)
+		for (j = 0; 10; j++)
 		{
-			if (*(s + i) == decode[j])
+			if (s[i] == decode[j])
 			{
-				*(s + i) = encode[j];
+				s[i] = encode[j];
 				break;
 			}
 		}
