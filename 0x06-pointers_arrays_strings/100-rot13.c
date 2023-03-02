@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * rot13 - encodes a string using rot13 formula. 
- * @s - pointer to string.
+ * @s: pointer to string.
  * 
  * Return: pointer to s.
  */
@@ -25,4 +25,3 @@ char *rot13(char *s)
 	}
 	return (s);
 }
-
