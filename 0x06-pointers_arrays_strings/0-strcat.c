@@ -9,10 +9,16 @@
  */
 char *_strcat(char *dest, char *src)
 {
-        char *save = dest;
+	int i, j;
 
-	for (; *dest; ++dest);
-	while (*dest++ = *src++);
-	return(save);
+	for (i = 0; *(dest + i); i++)
+		;
+	for (j = 0; j >= 0; j++, i++){
+		*(dest + i) = *(src + j);
+		if (*(src + j) == '\0')
+			break;
+	}
+
+	return(dest);
 }
 
