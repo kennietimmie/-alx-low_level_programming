@@ -9,21 +9,10 @@
  */
 char *_strcat(char *dest, char *src)
 {
-        int i = 0;
-	int j = 0;
+        char *save = dest;
 
-        while (*(dest + i))
-                i++;
-
-	while (j >= 0)
-	{
-		*(dest + i) = *(src + j);
-		if (*(src + j) == '\0')
-			break;
-		i++;
-		j++;
-	}
-	
-        return (dest);
+	for (; *dest; ++dest);
+	while (*dest++ = *src++);
+	return(save);
 }
 
