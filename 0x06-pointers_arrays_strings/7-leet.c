@@ -19,6 +19,7 @@ char *leet(char *s)
 			if (*(s + i) == lower[j] || *(s + i) == upper[j])
 			{
 				*(s + i) = num[j];
+				break;
 			}
 		}
 		i++;
