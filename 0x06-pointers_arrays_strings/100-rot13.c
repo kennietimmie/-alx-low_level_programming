@@ -13,7 +13,7 @@ char *rot13(char *s)
 
 	while (s[length] != '\0')
 	{
-		for (key = 0; input[key] != '\0'; key++)
+		for (key = 0; key < 52; key++)
 		{
 			if (s[length] == input[key])
 			{
