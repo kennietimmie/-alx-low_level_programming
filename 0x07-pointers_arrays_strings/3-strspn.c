@@ -23,7 +23,7 @@ unsigned int _strspn(char *s, char *accept)
 				break;
 			}
 			j++;
-		} 
+		}
 		while (*(accept + j) != '\0');
 		if (stop)
 			break;
