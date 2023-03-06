@@ -8,10 +8,10 @@
  * Return: pointer to char.
  */
 char* _memset(char *s, char b, int n)
-{	unsigned int counter = 0;
+{	unsigned int counter;
 
-	while(counter < n)
-		s[counter++] = b;
+	for(counter = 0; counter < n; counter++)
+		s[counter] = b;
 	
 	return s;
 }
