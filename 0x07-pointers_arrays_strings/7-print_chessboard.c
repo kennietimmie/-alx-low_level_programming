@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_chessboard - prints chessboard
  * @a: pointer to array of 8 character.
