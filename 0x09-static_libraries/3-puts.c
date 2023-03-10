@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * _puts - Print string with newline
  * @str: String

@@ -1,4 +1,3 @@
-#include "main.h"
 /**
  * _strncat - concatenates two string limit to n byte size.
  * @dest: destination string.

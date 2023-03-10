@@ -1,4 +1,3 @@
-#include "main.h"
 /**
  * _memcpy - fill memory with a constant byte.
  * @dest: pointer to memory destination.

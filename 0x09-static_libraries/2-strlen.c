@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * _strlen - Return string length
  * @s: string
