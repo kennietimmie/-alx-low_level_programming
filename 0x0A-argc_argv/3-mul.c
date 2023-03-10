@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - prints result of multiplying two numbers
@@ -15,7 +16,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	printf("%d\n", (argv[1][0] - 48) * (argv[2][0] - 48));
+	printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
 	return (0);
 }
 
