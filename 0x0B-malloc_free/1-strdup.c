@@ -9,7 +9,7 @@
  */
 char *_strdup(char *str)
 {
-	char *cstr = malloc(sizeof(char));
+	char *cstr;
 	int i = 0;
 
 	if (str == NULL)
@@ -24,6 +24,8 @@ char *_strdup(char *str)
 			*(cstr + i) = *(str + i);
 			i++;
 		}
+	else
+		return (NULL);
 	return (cstr);
 }
 
