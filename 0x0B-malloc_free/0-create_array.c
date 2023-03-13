@@ -18,6 +18,8 @@ char *create_array(unsigned int size, char c)
 		{
 			array[i] = c;
 		}
+	else
+		return NULL;
 	return (array);
 }
 
