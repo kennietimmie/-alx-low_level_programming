@@ -24,7 +24,7 @@ int **alloc_grid(int width, int height)
 		two_d[i] = malloc(sizeof(int) * width);
 		if (two_d[i] == NULL)
 		{
-			for (; i > 0; i--)
+			for (; i >= 0; i--)
 				free(two_d[i]);
 			free(two_d);
 			return (NULL);
