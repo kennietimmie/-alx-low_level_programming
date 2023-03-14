@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * argstostr - converts program params to string
@@ -15,16 +16,21 @@ char *argstostr(int ac, char **av)
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
+
 	for (i = 0; i < ac; i++)
-		for (j = 0; av[i][j] != '\0'; j++)
+		for (j = 0; av[i][j]; j++)
 			it++;
+
 	tostr = malloc((sizeof(char) * it) + ac + 1);
 	if (tostr == NULL)
 		return (NULL);
 
-	for (i = 0; i < ac; i++, it++)
-		for (j = 0; av[i][j] != '\0'; j++, it++)
+	for (i = 0, it = 0; i < ac; i++, it++)
+	{
+		for (j = 0; av[i][j]; j++, it++)
 			tostr[it] = av[i][j];
+		tostr[it] = '\n';
+	}
 	it += 1;
 	tostr[it] = '\0';
 	return (tostr);
