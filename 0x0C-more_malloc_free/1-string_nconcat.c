@@ -22,15 +22,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			s2len++;
 	}
 
-	s1len--;
-	s2len--;
+	if (n > s2len)
+		n = s2len;
+
 	str = malloc(sizeof(char) * (s1len + n + 1));
 
 	if (str == NULL)
 		return (str);
 
 	/* add first string */
-	for (j = 0; s1 && s1[j]; i++, j++)
+	for (j = 0; s1 && s1[j] && j < i; i++, j++)
 		str[i] = s1[j];
 
 	/* add second string */
