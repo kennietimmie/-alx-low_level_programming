@@ -11,11 +11,10 @@
  */
 int main(int argc, char *argv[])
 {
-	int (*callable)(int, int);
-	int a, b;
+	int (*callable)(int, int), a, b;
 	char *op;
 
-	if (argc < 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
@@ -31,7 +30,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	if ((*(op) == '%' || *(op) == '/') && b == 0)
+	if ((*(op) == '%' || *(op) == '/') && (b == 0))
 	{
 		printf("Error\n");
 		exit(100);
