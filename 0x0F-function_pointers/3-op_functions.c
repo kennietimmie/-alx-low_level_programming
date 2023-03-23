@@ -50,7 +50,7 @@ int op_div(int a, int b)
  * @a: int a
  * @b: int b
  *
- * Return: Always int
+ * Return: Always int.
  */
 int op_mod(int a, int b)
 {
