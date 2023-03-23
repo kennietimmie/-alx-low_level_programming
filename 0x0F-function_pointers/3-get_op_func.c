@@ -4,7 +4,7 @@
 
 /**
  * get_op_func - get function
- * @s: op type
+ * @s: op type.
  *
  * Return: Always int
  */
