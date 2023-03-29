@@ -1,12 +1,15 @@
-#include <stdio.h>
+#include "main.h"
 
 /*
- * main - check code
+ * print_putchar - print putchar
  *
  * Return: 0
 */
-int main(void)
+int print_putchar(void)
 {
-	printf("_putchar\n");
+	char *str = "putchar";
+	
+	while (*str)
+		_putchar(*str);
 	return (0);
 }
