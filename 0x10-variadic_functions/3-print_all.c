@@ -20,7 +20,8 @@ void print_all(const char *const format, ...)
 	};
 
 	va_start(ap, format);
-	while (format[i] && format != NULL)
+
+	while (format != NULL && format[i])
 	{
 		j = 0;
 		while (j < 4)
@@ -34,8 +35,8 @@ void print_all(const char *const format, ...)
 		}
 		i++;
 	}
-	printf("\n");
 	va_end(ap);
+	printf("\n");
 }
 
 /**
