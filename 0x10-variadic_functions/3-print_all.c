@@ -59,7 +59,7 @@ void print_char(const char *separator, va_list ap)
  */
 void print_integer(const char *separator, va_list ap)
 {
-	printf("%s%d", separator, va_arg(ap, int));
+	printf("%s%i", separator, va_arg(ap, int));
 }
 
 /**
@@ -84,5 +84,8 @@ void print_float(const char *separator, va_list ap)
 void print_string(const char *separator, va_list ap)
 {
 	char *s = va_arg(ap, char *);
-	printf("%s%s", separator, s == NULL || *s == '\0' ? "(nil)" : s);
+
+	printf("%s%s",
+	(s != NULL && *s == '\0') ? "" : separator,
+	s == NULL ? "(nil)" : s);
 }
