@@ -82,5 +82,6 @@ void print_float(const char *separator, va_list ap)
  */
 void print_string(const char *separator, va_list ap)
 {
-	printf("%s%s", va_arg(ap, char *), separator);
+	char *s = va_arg(ap, char *);
+	printf("%s%s", s == NULL ? "(nil)" : s, separator);
 }
