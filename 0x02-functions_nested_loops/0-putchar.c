@@ -7,8 +7,8 @@
 */
 int main(void)
 {
-	char *str = "putchar";
-	
+	char *str = "_putchar";
+
 	while (*str)
 		_putchar(*str++);
 	_putchar('\0');
