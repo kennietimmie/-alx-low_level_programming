@@ -1,15 +1,16 @@
 #include "main.h"
 
 /*
- * print_putchar - print putchar
+ * main - print putchar
  *
  * Return: 0
 */
-int print_putchar(void)
+int main(void)
 {
 	char *str = "putchar";
 	
 	while (*str)
 		_putchar(*str);
+	_putchar('\0');
 	return (0);
 }
