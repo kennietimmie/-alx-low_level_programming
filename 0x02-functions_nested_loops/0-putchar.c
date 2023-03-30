@@ -11,6 +11,6 @@ int main(void)
 
 	while (*str)
 		_putchar(*str++);
-	_putchar('\0');
+	_putchar('\n');
 	return (0);
 }
