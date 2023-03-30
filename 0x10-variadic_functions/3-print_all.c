@@ -85,7 +85,5 @@ void print_string(const char *separator, va_list ap)
 {
 	char *s = va_arg(ap, char *);
 
-	printf("%s%s",
-	(s != NULL && *s == '\0') ? "" : separator,
-	s == NULL ? "(nil)" : s);
+	printf("%s%s", separator, s == NULL ? "(nil)" : s);
 }
