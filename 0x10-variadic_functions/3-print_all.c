@@ -11,7 +11,7 @@ void print_all(const char *const format, ...)
 {
 	va_list ap;
 	unsigned int i = 0, j = 0;
-	char *separator = ", ";
+	char *separator = "";
 	format_types f_types[] = {
 		{ 'c', print_char },
 		{ 'i', print_integer },
@@ -25,10 +25,11 @@ void print_all(const char *const format, ...)
 		j = 0;
 		while (j < 4)
 		{
-			if (format[i + 1] == '\0')
-				separator = "";
 			if (format[i] == f_types[j].specifier)
+			{
 				f_types[j].callback(separator, ap);
+				separator = ", ";
+			}
 			j++;
 		}
 		i++;
@@ -46,7 +47,7 @@ void print_all(const char *const format, ...)
  */
 void print_char(const char *separator, va_list ap)
 {
-	printf("%c%s", va_arg(ap, int), separator);
+	printf("%s%c", separator, va_arg(ap, int));
 }
 
 /**
@@ -58,7 +59,7 @@ void print_char(const char *separator, va_list ap)
  */
 void print_integer(const char *separator, va_list ap)
 {
-	printf("%d%s", va_arg(ap, int), separator);
+	printf("%s%d", separator, va_arg(ap, int));
 }
 
 /**
@@ -70,7 +71,7 @@ void print_integer(const char *separator, va_list ap)
  */
 void print_float(const char *separator, va_list ap)
 {
-	printf("%f%s", va_arg(ap, double), separator);
+	printf("%s%f", separator, va_arg(ap, double));
 }
 
 /**
@@ -83,5 +84,5 @@ void print_float(const char *separator, va_list ap)
 void print_string(const char *separator, va_list ap)
 {
 	char *s = va_arg(ap, char *);
-	printf("%s%s", s == NULL ? "(nil)" : s, separator);
+	printf("%s%s", separator,s == NULL ? "(nil)" : s);
 }
