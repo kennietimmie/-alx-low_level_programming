@@ -11,7 +11,8 @@ int main(void)
 {
 	size_t current_number = 1, prev_number = 1, temp;
 	int i = 1;
-	for (; i < 50; i++)
+
+	for (; i <= 50; i++)
 	{
 		printf("%lu", current_number);
 
@@ -19,7 +20,7 @@ int main(void)
 		current_number += prev_number;
 		prev_number = temp;
 
-		printf("%s", i < 49 ? ", " : "");
+		printf("%s", i < 50 ? ", " : "");
 	}
 	printf("\n");
 	return (0);
