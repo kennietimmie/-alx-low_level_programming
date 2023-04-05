@@ -9,17 +9,17 @@
  */
 int main(void)
 {
-	int current_number = 1, prev_number = 1, temp;
-
-	for (current_number = 1; current_number < 50;)
+	size_t current_number = 1, prev_number = 1, temp;
+	int i = 1;
+	for (i; i < 50; i++)
 	{
-		printf("%d", current_number);
+		printf("%lu", current_number);
 
 		temp = current_number;
 		current_number += prev_number;
 		prev_number = temp;
 
-		printf("%s", current_number < 50 ? ", " : "");
+		printf("%s", i < 50 ? ", " : "");
 	}
 	printf("\n");
 	return (0);
