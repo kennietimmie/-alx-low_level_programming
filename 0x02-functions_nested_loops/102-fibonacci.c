@@ -19,7 +19,7 @@ int main(void)
 		current_number += prev_number;
 		prev_number = temp;
 
-		printf("%s", i < 50 ? ", " : "");
+		printf("%s", i < 49 ? ", " : "");
 	}
 	printf("\n");
 	return (0);
