@@ -13,9 +13,8 @@ int main(void)
 {
 	size_t current_number = 1, prev_number = 1,
 	temp, sum_of_even_numbers_of_fibonacci_less_than_4000000 = 0;
-	unsigned int i = 1;
 
-	for (; i < 4000000; i++)
+	for (; current_number < 4000000;)
 	{
 		if (current_number % 2 == 0)
 			sum_of_even_numbers_of_fibonacci_less_than_4000000 += current_number;
