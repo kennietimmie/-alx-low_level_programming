@@ -22,4 +22,5 @@ int main(void)
 		printf("%s", current_number < 50 ? ", " : "");
 	}
 	printf("\n");
+	return (0);
 }
