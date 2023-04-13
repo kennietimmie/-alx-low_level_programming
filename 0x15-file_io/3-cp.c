@@ -39,7 +39,8 @@ int main(int argc, char *argv[] )
 	nbyte_r = read(file_from, buff, BYTE_SIZE);
 	while (nbyte_r)
 	{
-		nbyte_r = read(file_from, buff, BYTE_SIZE);
+		nbyte_w = write(file_to, buff, nbyte_r);
+		nbyte_r = 0;
 	}
 
 	free(buff);
