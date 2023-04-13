@@ -1,11 +1,5 @@
 #include "main.h"
 
-#ifndef BYTE_SIZE
-#define BYTE_SIZE 1024
-#endif
-
-void close_file(int fd);
-
 /**
  * main - a program that copies the content of a file to another file.
  * @argc: numbers of passed argument.
