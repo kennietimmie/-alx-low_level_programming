@@ -37,12 +37,10 @@ int main(int argc, char *argv[] )
 		exit(99);
 	}
 
-	nbyte_r = read(file_from, buff, BYTE_SIZE);
-	do {
-
+	while ((nbyte_r = read(file_from, buff, BYTE_SIZE)))
+	{
 		nbyte_w = write(file_to, buff, nbyte_r);
-
-	} while ((nbyte_r = read(file_from, buff, BYTE_SIZE)));
+	}
 
 	free(buff);
 	close_file(file_from);
