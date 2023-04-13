@@ -10,6 +10,7 @@
 int main(int argc, char *argv[] )
 {
 	int file_from, file_to;
+	ssize_t nbyte_r, nbyte_w;
 	mode_t mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 	char *buff;
 
@@ -35,6 +36,7 @@ int main(int argc, char *argv[] )
 		free(buff);
 		exit(99);
 	}
+	nbyte_r = read(file_from, buff, BYTE_SIZE);
 
 
 	free(buff);
