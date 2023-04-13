@@ -19,19 +19,16 @@ int main(int argc, char *argv[])
 
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, mode);
-
 	buff = malloc(sizeof(char) * BYTE_SIZE);
 	if (file_to == -1 || !buff)
 	{
 		free(buff);
 		write_error(argv[2]);
 	}
-
 	nbyte_r = read(file_from, buff, BYTE_SIZE);
+
 	if (file_from == -1 || nbyte_r == -1)
 		read_error(argv[1]);
-
-
 	for (; nbyte_r; nbyte_r = read(file_from, buff, BYTE_SIZE))
 	{
 		nbyte_w = write(file_to, buff, nbyte_r);
@@ -41,11 +38,9 @@ int main(int argc, char *argv[])
 			free(buff);
 			write_error(argv[2]);
 		}
-
 		if (nbyte_r == -1)
 			read_error(argv[1]);
 	}
-
 	free(buff);
 	close_file(file_from);
 	close_file(file_to);
