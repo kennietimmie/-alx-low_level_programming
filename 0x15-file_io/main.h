@@ -1,6 +1,10 @@
 #ifndef FILE_IO_H
 #define FILE_IO_H
 
+#ifndef BYTE_SIZE
+#define BYTE_SIZE 1024
+#endif
+
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
