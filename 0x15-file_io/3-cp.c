@@ -1,6 +1,21 @@
 #include "main.h"
 
 /**
+ * close_file - close a file descriptor
+ * @fd: file descriptor.
+ *
+ * Return: void
+ */
+void close_file(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+
+/**
  * main - a program that copies the content of a file to another file.
  * @argc: numbers of passed argument.
  * @argv: pointer to passed argument
@@ -48,19 +63,4 @@ int main(int argc, char *argv[])
 	close_file(file_from);
 	close_file(file_to);
 	return (0);
-}
-
-/**
- * close_file - close a file descriptor
- * @fd: file descriptor.
- *
- * Return: void
- */
-void close_file(int fd)
-{
-	if (close(fd) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
 }
