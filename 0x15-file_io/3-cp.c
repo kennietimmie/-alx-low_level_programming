@@ -1,4 +1,15 @@
-#include "main.h"
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+
+#ifndef BYTE_SIZE
+#define BYTE_SIZE 1024
+#endif
+
+void close_file(int fd);
 
 /**
  * close_file - close a file descriptor
@@ -44,7 +55,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	buff = malloc(sizeof(char) * 1024);
+	buff = malloc(sizeof(char) * BYTE_SIZE);
 	if (file_to == -1 || !buff)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -52,12 +63,12 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	nbyte_r = read(file_from, buff, 1024);
+	nbyte_r = read(file_from, buff, BYTE_SIZE);
 	do {
 
 		nbyte_w = write(file_to, buff, nbyte_r);
 
-	} while ((nbyte_r = read(file_from, buff, 1024)));
+	} while ((nbyte_r = read(file_from, buff, BYTE_SIZE)));
 
 	free(buff);
 	close_file(file_from);
