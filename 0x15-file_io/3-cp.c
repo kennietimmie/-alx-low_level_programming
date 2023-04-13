@@ -11,6 +11,7 @@ int main(int argc, char *argv[] )
 {
 	int file_from, file_to;
 	mode_t mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
+	char *buff;
 
 	if (argc != 3)
 	{
@@ -21,6 +22,21 @@ int main(int argc, char *argv[] )
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, mode);
 
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file $%s\n", argv[1]);
+		exit(98);
+	}
+
+	buff = malloc(sizeof(char) * BYTE_SIZE);
+	if (file_to == -1 || !buff)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		free(buff);
+		exit(99);
+	}
+
+	free(buff);
 	close_file(file_from);
 	close_file(file_to);
 	return (0);
