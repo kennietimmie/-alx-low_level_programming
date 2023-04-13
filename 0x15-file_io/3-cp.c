@@ -10,36 +10,40 @@
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
-	ssize_t nbyte_r;
+	ssize_t nbyte_r, nbyte_w;
 	mode_t mode = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 	char *buff;
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		usage();
 
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, mode);
 
-	if (file_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
 	buff = malloc(sizeof(char) * BYTE_SIZE);
 	if (file_to == -1 || !buff)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		free(buff);
-		exit(99);
+		write_error(argv[2]);
 	}
+
 	nbyte_r = read(file_from, buff, BYTE_SIZE);
+	if (file_from == -1 || nbyte_r == -1)
+		read_error(argv[1]);
+
+
 	for (; nbyte_r; nbyte_r = read(file_from, buff, BYTE_SIZE))
 	{
-		write(file_to, buff, nbyte_r);
+		nbyte_w = write(file_to, buff, nbyte_r);
+
+		if (nbyte_w == -1)
+		{
+			free(buff);
+			write_error(argv[2]);
+		}
+
+		if (nbyte_r == -1)
+			read_error(argv[1]);
 	}
 
 	free(buff);
@@ -61,4 +65,39 @@ void close_file(int fd)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
+}
+
+/**
+ * read_error - handle read error
+ * @str: message.
+ *
+ * Return: void
+ */
+void read_error(char *str)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str);
+	exit(98);
+}
+
+/**
+ * write_error - handle read error
+ * @str: message.
+ *
+ * Return: void
+ */
+void write_error(char *str)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str);
+	exit(99);
+}
+
+/**
+ * usage -  usage message
+ *
+ * Return: void
+ */
+void usage(void)
+{
+	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+	exit(97);
 }
