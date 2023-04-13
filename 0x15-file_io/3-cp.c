@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	buff = malloc(sizeof(char) * BYTE_SIZE);
+	buff = malloc(sizeof(char) * 1024);
 	if (file_to == -1 || !buff)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	nbyte_r = read(file_from, buff, BYTE_SIZE);
+	nbyte_r = read(file_from, buff, 1024);
 	do {
 
 		nbyte_w = write(file_to, buff, nbyte_r);
 
-	} while ((nbyte_r = read(file_from, buff, BYTE_SIZE)));
+	} while ((nbyte_r = read(file_from, buff, 1024)));
 
 	free(buff);
 	close_file(file_from);
